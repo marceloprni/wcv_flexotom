@@ -25,6 +25,8 @@ class Insumos extends Model {
         this.belongsTo(models.Usuarios, { foreignKey: 'UsuarioAlteracaoId'});
         this.hasOne(models.Armazenamentos, { foreignKey: 'InsumoId'});
         this.hasOne(models.ArmazenamentoEstoqueHistoricos, { foreignKey: 'InsumoId'});
+        this.hasMany(models.OrdemProducaoParametros, { foreignKey: 'InsumoId'});
+        this.hasMany(models.ReceitaInsumoParametro, { foreignKey: 'InsumoId'});
     }
 
 }

@@ -14,12 +14,17 @@ server.app.use(server.bodyParser.json());
 server.app.use(server.routes);
 
 // Database 
+// Testa conexão com o banco
 server.connection.authenticate()
-          .then( () => {
-            console.log('Conexao sql ok');
-          }).catch((error) => {
-            console.log(error);
-          });
+  .then(() => console.log('Conexão com o banco de dados OK'))
+  .catch(error => console.error('Erro na conexão:', error));
+
+// Sincroniza com o banco (sem forçar alterações)
+/*
+server.connection.sync({ force: false })
+  .then(() => console.log('Banco sincronizado'))
+  .catch(error => console.error('Erro na sincronização:', error));
+*/
 
 server.http.listen(server.porta, () => {
     console.log(`Servidor on, port: ${server.porta}`);

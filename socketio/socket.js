@@ -1,6 +1,5 @@
 const connection = require('../app'); 
 const { Op, Sequelize, QueryTypes} = require("sequelize");
-const tabAcidentes = require('../models/tab_acidente/TabAcidente');
 
 
 

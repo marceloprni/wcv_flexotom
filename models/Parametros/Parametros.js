@@ -4,6 +4,7 @@ class Parametros extends Model {
     static init(connection) {
         super.init({
             Descricao: DataTypes.STRING,
+            TagId: DataTypes.INTEGER,
             ValorPadrao: DataTypes.DECIMAL,
             Tipo: DataTypes.STRING,
             Status: DataTypes.STRING,
@@ -16,6 +17,13 @@ class Parametros extends Model {
             timestamps: false,
             underscored: false
         })
+    }
+
+    static associate(models) {
+        this.belongsTo(models.Tags, { foreignKey: 'TagId'});
+        this.hasOne(models.ArmazenamentoParametros, { foreignKey: 'ParametroId'});
+        this.hasMany(models.OrdemProducaoParametros, { foreignKey: 'ParametroId'});
+        this.hasMany(models.ReceitaInsumoParametro, { foreignKey: 'ParametroId'});
     }
 
 }

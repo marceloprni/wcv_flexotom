@@ -1,6 +1,6 @@
 const {Model, DataTypes} = require("sequelize");
 
-class TagComms extends Model {
+class Tags extends Model {
     static init(connection) {
         super.init({
             Descricao: DataTypes.STRING,
@@ -9,12 +9,17 @@ class TagComms extends Model {
             TamanhoArray: DataTypes.INTEGER
         },{
             sequelize: connection,
-            tableName: 'TagComms',
+            tableName: 'Tags',
             timestamps: false,
             underscored: false
         })
     }
 
+     static associate(models) {
+        this.hasOne(models.Parametros, { foreignKey: 'TagId'});
+        this.hasMany(models.TagComms, { foreignKey: 'TagId'});
+    }
+
 }
 
-module.exports = TagComms;
+module.exports = Tags;

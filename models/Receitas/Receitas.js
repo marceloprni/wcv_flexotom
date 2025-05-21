@@ -20,6 +20,7 @@ class Receitas extends Model {
 
     static associate(models) {
         this.belongsTo(models.Usuarios, { foreignKey: 'UsuarioAlteracaoId'});
+        this.hasMany(models.ReceitaInsumoParametro, { foreignKey: 'ReceitaId'});
     }
 
 }

@@ -5,6 +5,7 @@ class Armazenamentos extends Model {
         super.init(
           {
             Descricao: DataTypes.STRING,
+            InsumoId: DataTypes.INTEGER,
             Linha: DataTypes.INTEGER,
             DataAlteracao: DataTypes.DATE,
             UsuarioAlteracao: DataTypes.DATE,
@@ -20,6 +21,13 @@ class Armazenamentos extends Model {
             underscored: false,
           }
         );
+    }
+
+    static associate(models) {
+        this.belongsTo(models.Insumos, { foreignKey: 'InsumoId'});
+        this.hasMany(models.ArmazenamentoParametros, { foreignKey: 'ArmazenamentoId'});
+        this.hasMany(models.OrdemProducaoParametros, { foreignKey: 'ArmazenamentoId'});
+        this.hasMany(models.ArmazenamentoEstoqueHistoricos, { foreignKey: 'ArmazenamentoId'});
     }
 
 }

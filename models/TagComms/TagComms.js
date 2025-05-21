@@ -4,6 +4,7 @@ class TagComms extends Model {
     static init(connection) {
         super.init({
             Endereco: DataTypes.STRING,
+            TagId: DataTypes.INTEGER,
             vlLeitura: DataTypes.STRING,
             vlEscrita: DataTypes.STRING,
             flLeitura: DataTypes.BOOLEAN,
@@ -23,6 +24,10 @@ class TagComms extends Model {
         })
     }
 
+    static associate(models) {
+        this.belongsTo(models.Tags, { foreignKey: 'TagId'});
+    }
+    
 }
 
 module.exports = TagComms;

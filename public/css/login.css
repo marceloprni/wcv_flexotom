@@ -1,11 +1,61 @@
-.container_principal {
-    background-image: url('../image/login/aptiv_login.png');
-    background-position: center;
-     background-repeat: no-repeat; 
-     background-size: 100%;
-     height: 100vh; 
-     -webkit-background-size: cover; 
-     -moz-background-size: cover;
-     -o-background-size: cover; 
-    color: black;
+.login_container_principal {
+    background-color: #44403C;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+.login_container_principal img {
+    margin-top: 1.25rem;
+    width: 100%;
+    height: auto;
+    display: block; /* remove espaços abaixo da imagem */
+}
+
+.container-login {
+    display: flex;
+    background-color: rgba(217, 217, 217, 0.5);
+    border-radius: 0.6rem;
+    justify-content: center;
+    align-items: center;
+
+    width: 17.25rem;
+    height: 24.34rem;
+}
+
+.container-login form {
+    display: flex;
+    gap: 1.25rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.senha_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    width: 100%; /* ou defina uma largura específica */
+}
+
+/* Estilo para a imagem */
+.senha_container img {
+    position: absolute;
+    top: -14px; /* Ajuste essa distância conforme necessário */
+    left: 10%;
+    transform: translateX(-60%);
+    transition: opacity 0.3s ease;
+    width: 24px; /* Tamanho da imagem, ajuste conforme preferir */
+    height: auto;
+}
+
+/* Estilo para o input */
+.senha_container .form-control {
+    padding-top: 30px; /* espaço para a imagem ficar acima */
+    width: 100%; /* ou uma largura fixa */
 }

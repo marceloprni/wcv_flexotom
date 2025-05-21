@@ -24,6 +24,7 @@ class ArmazenamentoEstoqueHistoricos extends Model {
 
     static associate(models) {
         this.belongsTo(models.Insumos, { foreignKey: 'InsumoId'});
+        this.belongsTo(models.Armazenamentos, { foreignKey: 'ArmazenamentoId'});
     }
 
 }

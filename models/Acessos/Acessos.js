@@ -17,7 +17,7 @@ class Acessos extends Model {
     }
 
     static associate(models) {
-        this.hasOne(models.Usuarios, { foreignKey: 'AcessoId', as: 'Usuario' });
+        this.hasOne(models.Usuarios, { foreignKey: 'AcessoId'});
     }
 
 }

@@ -3,7 +3,7 @@ require('dotenv').config();
 const bodyParser = require("body-parser");
 const session = require("express-session");
 /* SQL */
-const connection = require('./database/database');
+const {connection, models} = require('./database/database');
 const routes = require('./routes');
 
 const app = express();
@@ -17,6 +17,7 @@ module.exports = {
   io,
   porta,
   connection,
+  models,
   routes,
   express,
   bodyParser
