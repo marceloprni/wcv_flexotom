@@ -1,0 +1,234 @@
+<%- include ('../partials/header.ejs'); -%>
+<%- include ('../partials/navbar.ejs'); -%>
+
+
+<div class="container-fluid cnFluid">
+    <div class="row rowGeral">
+
+            <div class="colButtonsIcons">
+                <p class="mesParagrafo" id="mesString"></p>
+                <section class="buttonDays" id="daysContainer"></section>
+            </div>
+
+            <div class="col-11 col-sm-11 searchModelCamp">
+                <!-- PESQUISA DE VALOR  -->
+                <div class="row searchCamp">
+                    <div class="col-12 col-sm-12 searchCampComponent">
+                        <h1>APTIV DASHBOARD</h1>
+                        <div id="spinner" class="spinner-container">
+                            <div class="spinner-border text-dark" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="dataRowPrincipal">
+                    <!-- PRIMEIRA LINHA  -->
+                    <div class="row rowFirst">
+
+                        <div class="col-1 col-sm-1 columnFirstBtn"> 
+                            <a type="button" class="IdentifyComponentLine textValue">+</a>
+                        </div>
+
+                        <div class="col-3 col-sm-2 columnFirst"> 
+                            <!-- data-toggle="modal" data-target="#exampleModal" -->
+                            <a type="button"class="IdentifyComponent" id="LwdcPrimeiraColuna" >
+                                <p class="textInformation">LWDC</p>
+                                <p class="textValue">1.4%</p>
+                                <p class="textInformation">TARGET: 4.0%</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- SEGUNDA LINHA  -->
+                    <div class="row  rowSecond">
+                        <div class="col-1 col-sm-1 columnSecondBtn"> 
+                            <a type="button" class="IdentifyComponentLine textValue">S</a>
+                        </div>
+
+                        <div class="col-3 col-sm-2 columnSecond" id="absenteismoSegundaColuna">   
+                            <p class="textInformation">ABSENTEISMO</p>
+                            <a type="button" class="IdentifyComponent" id="columnSecondId1">  
+                                <p class="textValue" id="absenteismoText"></p>
+                            </a>
+                            <p class="textInformation"></p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnSecond" id="afastamentoSegundaColuna">   
+                            <p class="textInformation">AFASTAMENTO</p>
+                            <a type="button" class="IdentifyComponent" id="columnSecondId2">  
+                                <p class="textValue" id="afastamentoText"></p>
+                            </a>
+                            <p class="textInformation"></p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnSecond" id="emprestimoSegundaColuna">   
+                            <p class="textInformation">EMPRÉSTIMO</p>
+                            <a type="button" class="IdentifyComponent" id="columnSecondId3">
+                                
+                                <p class="textValue">1.4%</p>
+                                
+                            </a> 
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnSecond" id="feriasSegundaColuna">   
+                            <p class="textInformation">FERIAS</p>
+                            <a type="button" class="IdentifyComponent" id="columnSecondId4">
+                                <p class="textValue">1.4%</p>
+                            </a> 
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                    </div>
+
+                    <!-- TERCEIRA LINHA  -->
+                    <div class="row rowThree">
+
+                        <div class="col-1 col-sm-1 columnThreeBtn"> 
+                            <a type="button" class="IdentifyComponentLine textValue">Q</a>
+                        </div>
+
+                        <div class="col-3 col-sm-2 columnThree" id="contencaoTerceiraColuna"> 
+                            <p class="textInformation">CONTENÇÃO</p>  
+                            <a type="button" class="IdentifyComponent" id="columnThreeId1"> 
+                                <p class="textValue">1.4%</p>
+                            </a> 
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnThree" id="reclamacoesTerceiraColuna">   
+                            <p class="textInformation">RECLAMAÇÕES</p>
+                            <a type="button" class="IdentifyComponent" id="columnThreeId2">
+                                <p class="textValue" id="reclamacoesText"></p>
+                            </a>
+                            <p class="textInformation"></p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnThree" id="scrapTerceiraColuna">   
+                            <p class="textInformation">SCRAP</p>
+                            <a type="button" class="IdentifyComponent" id="columnThreeId3">
+                                <p class="textValue" id="scrapText"></p>
+                            </a> 
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                    </div>
+
+                    <!-- QUARTA LINHA  -->
+                    <div class="row  rowFour">
+
+                        <div class="col-1 col-sm-1 columnFourBtn"> 
+                            <a type="button" class="IdentifyComponentLine textValue">D</a>
+                        </div>
+
+                        <div class="col-3 col-sm-2 columnFour" id="aderenciaQuartaColuna">
+                            <p class="textInformation">ADERÊNCIA</p>  
+                            <a type="button" class="IdentifyComponent" id="columnFourId1">
+                                <p class="textValue">1.4%</p>
+                            </a> 
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                    </div>
+
+                    <!-- QUINTA LINHA  -->
+                    <div class="row  rowFive">
+
+                        <div class="col-1 col-sm-1 columnFiveBtn"> 
+                            <a type="button" class="IdentifyComponentLine textValue">P</a>
+                        </div>
+
+                        <div class="col-3 col-sm-2 columnFive" id="oeePrensaQuintaColuna">   
+                            <p class="textInformation">OEE PRENSA</p>
+                            <a type="button" class="IdentifyComponent" id="columnFiveId1"> 
+                                <p class="textValue">1.4%</p>
+                            </a> 
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnFive" id="oeeInjecaoQuintaColuna">   
+                            <p class="textInformation">OEE INJEÇÃO</p>
+                            <a type="button" class="IdentifyComponent" id="columnFiveId2">
+                                <p class="textValue">1.4%</p>
+                            </a> 
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnFive" id="prodAcMesQuintaColuna">   
+                            <p class="textInformation">PROD AC DO MÊS</p>
+                            <a type="button" class="IdentifyComponent" id="columnFiveId3">
+                                <p class="textValue">1.4%</p>
+                            </a>
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnFive" id="prodAcDiaQuintaColuna"> 
+                            <p class="textInformation">PROD AC DO DIA</p>  
+                            <a type="button" class="IdentifyComponent" id="columnFiveId4">  
+                                <p class="textValue">1.4%</p>
+                            </a>
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnFive" id="setupQuintaColuna">  
+                            <p class="textInformation">SETUP</p> 
+                            <a type="button" class="IdentifyComponent" id="columnFiveId5">  
+                                <p class="textValue">1.4%</p>
+                            </a>
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                    </div>
+
+                    <!-- SEXTA LINHA  -->
+                    <div class="row rowSix">
+
+                        <div class="col-1 col-sm-1 columnSixBtn"> 
+                            <a type="button" class="IdentifyComponentLine textValue">K</a>
+                        </div>
+
+                        <div class="col-3 col-sm-2 columnSix" id="cincoSSextaColuna">   
+                            <p class="textInformation">5S</p>
+                            <a type="button" class="IdentifyComponent" id="columnSixId1">
+                                <p class="textValue">1.4%</p>
+                            </a> 
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnSix" id="media5sSextaColuna">   
+                            <p class="textInformation">MEDIA DE NOTAS 5S</p>
+                            <a type="button" class="IdentifyComponent" id="columnSixId2">
+                                <p class="textValue">1.4%</p>
+                            </a>
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnSix" id="auditoriaSextaColuna">   
+                            <p class="textInformation">AUDITORIA</p>
+                            <a type="button" class="IdentifyComponent" id="columnSixId3">
+                                <p class="textValue">1.4%</p>
+                            </a>
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                        <div class="col-3 col-sm-2 columnSix" id="pendentesSextaColuna">   
+                            <p class="textInformation">PENDENTES</p>
+                            <a type="button" class="IdentifyComponent" id="columnSixId4"> 
+                                <p class="textValue">1.4%</p>
+                            </a> 
+                            <p class="textInformation">TARGET: 4.0%</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalList" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <h1>Colocar Aqui</h1>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include ('../partials/footer.ejs'); -%>
+<script type="module" src="/js/monitoramento/monitoramento1Script.js"></script>

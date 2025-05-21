@@ -1,0 +1,191 @@
+.cnFluidlina {
+    background: #191919;
+    height: 65rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.colButtonsIconsline {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.linhaMesCollor{
+    height: 20px;
+    text-align: center;
+    width: 60px;
+    background-color: #7b7878;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 3px;
+    border-color: #f5f5f5;
+}
+
+.linhaMesCollor:hover {
+    opacity: 0.5;
+}
+
+.colButtonsIconsline p {
+    color: rgb(5, 4, 4);
+}
+
+.buttonDayslinha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60px;
+}
+
+
+
+#daylinha-1, #daylinha-2,
+#daylinha-3, #daylinha-4,
+#daylinha-5, #daylinha-6,
+#daylinha-7, #daylinha-8,
+#daylinha-9, #daylinha-10,
+#daylinha-11, #daylinha-12,
+#daylinha-13, #daylinha-14,
+#daylinha-15, #daylinha-16,
+#daylinha-17, #daylinha-18, 
+#daylinha-19, #daylinha-20,
+#daylinha-21, #daylinha-22,
+#daylinha-23, #daylinha-24,
+#daylinha-25, #daylinha-26,
+#daylinha-27, #daylinha-27,
+#daylinha-28, #daylinha-29,
+#daylinha-30, #daylinha-31 {
+    width: 60px;
+    height: 20px;
+    margin: 2px;
+    border-radius: 3px;
+    align-items: center; 
+    justify-content: center;
+    font-size: 12px;
+    background: #f5f5f5;
+    color: #262626;
+    border: solid 1px #262626;
+}
+
+.searchCampComponentLine {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.paragarafo_1_linha {
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #52525b;
+}
+
+.pargrafo_1_linha_check {
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #52525b;
+}
+
+.selectCombo {
+    width: 300px;
+    height: auto;
+    margin-left: 50px;
+    font-weight: bold;
+}
+
+.checkBoxInforme {
+    margin-left: 3px;
+}
+
+.comboTurno {
+    width: 300px;
+}
+
+.statusLinha {
+    margin-top: 13px;
+    border-radius: 10px;
+    padding: 0px 10px;
+    font-size: 20px;
+    color: #f8f9fa;;
+    font-weight: bold;
+    width: auto;
+}
+
+.rowFirstLine,
+.rowSecondLine,
+.rowThreeLine,
+.rowFourLine {
+    margin: 20px 5px;
+    height:210px;
+    display: flex;
+}
+
+.rowFirstLine,
+.rowSecondLine,
+.rowThreeLine {
+    border-bottom: solid 1px black;
+}
+
+.columnFirstLineBtn,
+.columnSecondLineBtn,
+.columnThreeLineBtn,
+.columnFourLineBtn,
+.columnFiveBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 215px;
+    height: 200px;
+    background-color: #5a5a5a;
+    border-radius: 8px;
+    color: #f8f9fa;
+    margin-right: 10px;
+    opacity: 0.9;
+}
+
+
+.columnFirstLine,
+.columnSecondLine,
+.columnThreeLine,
+.columnFourLine {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 215px;
+    height: 200px;
+    background-color: #28A745;
+    border-radius: 8px;
+    color: #f8f9fa;
+    margin-right: 10px;
+    opacity: 0.9;
+}
+
+.textValue {
+    font-size: 58px;
+    font-weight: bold;
+}
+
+.IdentifyComponentLine {
+    text-decoration: none;
+    color: #f8f9fa;
+    padding-top: 12px;
+}
+
+
+.searchCampComponentLine,
+.dataRowPrincipalLinha {
+    background-color: #f8f9fade;
+    border-radius: 5px;
+}
+
+.dataRowPrincipalLinha {
+    padding-top: 1px;
+}

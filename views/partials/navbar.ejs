@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-custom navbar-mainbg">
+      
+    <a class="navbar-brand navbar-logo" href="#">
+        <img src="/image/navbar/logoBranco.png" alt="">
+    </a>
+        
+    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+            <% if(privilegio1 >= 2)  { %>
+            <li class="nav-item">
+                <a id="dashboardGeral" class="nav-link" href="/monitoramento"><i class="fas fa-tachometer-alt"></i> Dashboard Geral</a>
+            </li>
+            <% } %>
+
+            <% if(privilegio1 >= 1) { %>
+            <li class="nav-item">
+                <a id="dashboardLinha" class="nav-link" href="/linha"><i class="fas fa-tachometer-alt"></i> Linha</a>
+            </li>
+            <li class="nav-item">
+                <a id="dashboardLinha" class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </li>
+            <% } %>
+            <!--
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i> Components</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i> Calendar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i> Charts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i> Documents</a>
+            </li>
+            -->
+        </ul>
+    </div>
+</nav>
+
+<div class="modal fade" id="message" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" id="messageDiv" role="document">
+        <div class="modal-content" id="messageDivChildren">
+            <div class="modal-body text-center"><span id="messageText"></span></div>
+        </div>
+    </div>
+</div>
+
