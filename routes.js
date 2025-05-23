@@ -30,4 +30,35 @@ router.post("/login", usuarioController.login);
 router.get("/logout", usuarioController.logout); 
 
 
+/***************** CADASTRO DE LOTE *****************/
+
+router.get("/cadastroLote", adminAuth, (req, res) => {
+  res.render("cadastroLote/cadastroLote", {
+      privilegio1: req.session.user.privilegio,
+      erro: " ",
+      acionaWarmin: false
+  });
+}); 
+
+
+/***************** VINCULAÇÃO DE LOTE *****************/
+
+router.get("/vincularLote", usuarioAuth, (req, res) => {
+  res.render("vinculacaoLote/vinculacaoLote", {
+      privilegio1: req.session.user.privilegio,
+      erro: " ",
+      acionaWarmin: false
+  });
+}); 
+
+/***************** VISUALIZAÇÃO DE LOTE *****************/
+
+router.get("/vizualizarLote", usuarioAuth, (req, res) => {
+  res.render("visualizarLote/visualizarLote", {
+      privilegio1: req.session.user.privilegio,
+      erro: " ",
+      acionaWarmin: false
+  });
+}); 
+
 module.exports = router

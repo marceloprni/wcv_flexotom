@@ -1,8 +1,33 @@
 <%- include ('../partials/header.ejs'); -%>
     <%- include ('../partials/navbar.ejs'); -%>
 
-<div class="container-fluid  cnFluidlina">
-</div>
+<main class="container_main">
+    <section class="container_section_first">
+        <div class="group_seleciona_materia">
+            <div class="form-group group_input_parametros">
+              <label for="">MATERIA PRIMA</label>
+              <select class="form-control selectPrima" id="materiaPrima"></select>
+            </div>
+
+            <div class="form-group group_input_parametros">
+                <label for="">SELECIONADO</label>
+                <input type="text" class="form-control inputPrima" id="materiaPrimaSelecionada" placeholder="">
+            </div>
+
+            <button class="btn_criar">CRIAR LOTE</button>
+        </div>
+
+        <div class="group_selectiona_btn">
+            <button class="btn_tabela">IMPRIMIR LOTE</button>
+            <button class="btn_tabela">DELETAR LOTE</button>
+        </div>
+    </section>
+    <section class="container_section_second">
+        <div class="container_table">
+            <table class="table text-black" id="tabela-CadastroLote"><thead class="thead-default"></thead></table>
+        </div>
+    </section>
+</main>
 
 <%- include ('../partials/footer.ejs'); -%>
-<script type="module" src="/js/linha/linhaMonitoramento.js"></script>
+<script type="module" src="/js/cadastroLote/cadastroLote.js"></script>

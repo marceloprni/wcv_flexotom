@@ -2,7 +2,11 @@
 function usuarioAuth(req, res, next) {
     const users = req.session.user == undefined ? 0 : req.session.user;
     console.log(users)
-    if(users.privilegio === 6) {
+    if(   users.privilegio === 6 ||
+          users.privilegio === 2 ||
+          users.privilegio === 2004 ||
+          users.privilegio === 1004
+    ) {
         console.log('agora passou 1')
         next();
     } else {
