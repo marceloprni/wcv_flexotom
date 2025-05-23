@@ -2,7 +2,7 @@
 function usuarioAuth(req, res, next) {
     const users = req.session.user == undefined ? 0 : req.session.user;
     console.log(users)
-    if(users.privilegio == 1 || users.privilegio > 1) {
+    if(users.privilegio === 6) {
         console.log('agora passou 1')
         next();
     } else {
@@ -18,15 +18,19 @@ function usuarioAuth(req, res, next) {
 function adminAuth(req, res, next) {
     const admin = req.session.user == undefined ? 0 : req.session.user;
     if(admin) {
-        if(admin.privilegio > 1) {
-            console.log('agora passou')
-            next();
+        if (
+          admin.privilegio === 2 ||
+          admin.privilegio === 2004 ||
+          admin.privilegio === 1004
+        ) {
+          console.log("agora passou");
+          next();
         } else {
-            res.render("users/login", { 
-                privilegio1: 0,
-                erro: " ",
-                acionaWarmin: false
-            });
+          res.render("users/login", {
+            privilegio1: 0,
+            erro: " ",
+            acionaWarmin: false,
+          });
         }
     } else {
         res.render("users/login", { 

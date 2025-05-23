@@ -17,6 +17,7 @@ class UsuarioController {
                     privilegio: usuarioValido.privilegio
                     }
             } 
+            
             const privilegio = req.session.user;
             res.render(usuarioValido.rota, { 
                 privilegio1: privilegio.privilegio

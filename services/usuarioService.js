@@ -6,22 +6,22 @@ const { Op, Sequelize, QueryTypes} = require("sequelize");
 
 async function validarUsuarios(usuario, senha) {
 
-    usuario = usuario.toString().toLowerCase();
-    let user = await Usuarios.findOne({where: {Descricao: usuario}});
+    //usuario = usuario.toString().toLowerCase();
+    let user = await Usuarios.findOne({where: {Login: usuario}});
+
 
     //senha = geradorToken.gerarHashDaSenha(senha);
 
-    if(!user || (user.senha !== senha)){
+    if(!user || (user.Senha !== senha)){
         throw new NaoAutorizadoErro(401, "Usuário ou senha inválidos");
     } else {
         let rota = "pageSelection/pageSelection";
         return {
-            id: user.id,
+            id: user.Id,
             rota: rota,
-            nome: user.nome,
-            usuario: user.usuario,
-            setor: user.setor,
-            privilegio: user.privilegio
+            nome: user.Descricao,
+            usuario: user.Login,
+            privilegio: user.AcessoId
         }
     }
 }

@@ -13,10 +13,21 @@
     
      
     <div class="navbarLink">
-        <% if(privilegio1 >= 1) { %>
-        <a class="nav-link" href="/"><i class="fas fa-eye"></i>CADASTRAR LOTE</a>
-        <a class="nav-link" href="/"><i class="fa-solid fa-chart-pie"></i>VINCULAÇÃO DE LOTE</a>
-        <a class="nav-link" href="/"><i class="fa-solid fa-chart-pie"></i>VISUALIZAR LOTE</a>    
+        <ul id="menuList">
+        <% if(privilegio1 == 2 || privilegio1 == 2004 || privilegio1 == 1004) { %>
+            <li><a class="nav-link" href="/"><i class="fa-solid fa-pen-to-square icon_nav"></i>CADASTRAR LOTE</a></li>
+            <li><a class="nav-link" href="/"><i class="fa-solid fa-chart-pie icon_nav"></i>VINCULAÇÃO DE LOTE</a></li>
+            <li><a class="nav-link" href="/"><i class="fa-solid fa-eye icon_nav"></i>VISUALIZAR LOTE</a></li>    
+            <li><a class="nav-link" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket icon_nav"></i> LOGOUT</a></li>   
+        <% } else if (privilegio1 == 3 || privilegio1 == 6 || privilegio1 == 5) { %>
+            <li><a class="nav-link" href="/"><i class="fa-solid fa-chart-pie icon_nav"></i>VINCULAÇÃO DE LOTE</a></li>
+            <li><a class="nav-link" href="/"><i class="fa-solid fa-chart-pie icon_nav"></i>VISUALIZAR LOTE</a></li> 
+        <% } %>  
+            
+        </ul>
+
+        <% if(privilegio1 > 0) { %>
+        <i class="fa-solid fa-bars icon_mobile" onclick="toggleMenu()"></i>
         <% } %>
     </div>
     
