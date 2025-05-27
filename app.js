@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 /* SQL */
 const {connection, models} = require('./database/database');
+const { connection1 } = require('./database/database1');
+
 const routes = require('./routes');
 
 const app = express();
@@ -18,8 +20,9 @@ module.exports = {
   porta,
   connection,
   models,
+  connection1,
   routes,
   express,
-  bodyParser
-}
+  bodyParser,
+};
 

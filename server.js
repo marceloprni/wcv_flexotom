@@ -16,7 +16,11 @@ server.app.use(server.routes);
 // Database 
 // Testa conexão com o banco
 server.connection.authenticate()
-  .then(() => console.log('Conexão com o banco de dados OK'))
+  .then(() => console.log('db flexotom connection'))
+  .catch(error => console.error('Erro na conexão:', error));
+
+server.connection1.authenticate()
+  .then(() => console.log('db flexotom1 connection'))
   .catch(error => console.error('Erro na conexão:', error));
 
 // Sincroniza com o banco (sem forçar alterações)
