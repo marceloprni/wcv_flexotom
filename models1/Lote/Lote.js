@@ -6,7 +6,8 @@ class Acessos extends Model {
             Lote: DataTypes.STRING,
             MateriaPrimaIdInsumo: DataTypes.INTEGER,
             MateriaPrimaInsumo: DataTypes.STRING,
-            Barcode: DataTypes.STRING
+            Barcode: DataTypes.STRING,
+            Status: DataTypes.STRING
         },{
             sequelize: connection,
             tableName: 'lote',

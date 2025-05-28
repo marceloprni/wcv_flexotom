@@ -19,7 +19,7 @@
     height: 28rem;
     background-color: rgba(217, 217, 217, 0.5);
     border-radius: 0.62rem;
-    gap: 2rem;
+    gap: 1rem;
     padding: 1.28rem;
 }
 
@@ -49,7 +49,7 @@
 
 .selectPrima,
 .inputPrima {
-    height: 4.8rem;
+    height: 3rem;
     border-radius: 0.62rem;
 }
 
@@ -68,7 +68,7 @@
 .btn_tabela {
 background: #D9D9D9;
     width: 10rem;
-    height: 4rem;
+    height: 3rem;
     color: #53B365;
     font-family: 'Inter';
     font-style: normal;
@@ -78,3 +78,41 @@ background: #D9D9D9;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+@media(max-width: 1200px) {
+
+    .group_seleciona_materia {
+        width: 25rem;
+    }
+}
+
+
+@media(max-width: 900px) {
+
+    .group_seleciona_materia {
+        width: 20rem;
+    }
+
+    .group_seleciona_materia label {
+        font-size: 1.1rem;
+    }
+
+    .btn_criar {
+        font-size: 1.1rem;
+        height: 3rem;
+    }
+
+    div.dataTables_wrapper div.dataTables_filter {
+        text-align: right;
+    }
+}
+
+
+@media(max-width: 700px) {
+
+
+}
+
+@media(max-width: 380px) {
+
+
+}

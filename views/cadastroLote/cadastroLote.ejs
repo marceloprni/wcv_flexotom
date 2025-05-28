@@ -10,7 +10,12 @@
             </div>
 
             <div class="form-group group_input_parametros">
-                <label for="">SELECIONADO</label>
+                <label for="">LOTE</label>
+                <input type="text" class="form-control inputPrima" id="materiaPrimaLote" placeholder="">
+            </div>
+
+            <div class="form-group group_input_parametros">
+                <label for="">MATERIA SELECIONADA</label>
                 <input type="text" class="form-control inputPrima" id="materiaPrimaSelecionada" placeholder="" readonly>
             </div>
 
@@ -18,8 +23,8 @@
         </div>
 
         <div class="group_selectiona_btn">
-            <button class="btn_tabela">IMPRIMIR LOTE</button>
-            <button class="btn_tabela">DELETAR LOTE</button>
+            <button class="btn_tabela" id="btn_imprimir">IMPRIMIR LOTE</button>
+            <button class="btn_tabela" id="btn_deletar">DELETAR LOTE</button>
         </div>
     </section>
     <section class="container_section_second">
@@ -28,6 +33,18 @@
         </div>
     </section>
 </main>
+
+<div class="modal fade" id="barCodeModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" id="messageDiv" role="document">
+        <div class="modal-content" id="barCodeDiv">
+            <div class="modal-body text-center">
+                <p id="mensagemBarcode"></p>
+                <svg id="idBarcode"></svg>
+                <button type="button" class="btn btn-dark" id="btn_imprimir_barcode">IMPRIMIR</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <%- include ('../partials/footer.ejs'); -%>
 <script type="module" src="/js/cadastroLote/cadastroLote.js"></script>

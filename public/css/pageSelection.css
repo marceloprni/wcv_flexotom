@@ -93,6 +93,8 @@ text-decoration: none;
     color:#FFFFFF;
 }
 
+
+
 @media(max-width: 1200px) {
     .container_principal section {
         flex-direction: column;
@@ -142,6 +144,16 @@ text-decoration: none;
     .container_link a {
         font-size: 15px;
     }
+
+}
+
+@media(max-width: 768px) {
+
+}
+
+
+@media(max-width: 480px) {
+
 
 }
 

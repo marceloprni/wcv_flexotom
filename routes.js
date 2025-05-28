@@ -43,6 +43,7 @@ router.get("/cadastroLote", adminAuth, (req, res) => {
 
 router.get("/cadastroLote/dadosLote", adminAuth, cadastroLoteController.dadosLote);
 router.post("/cadastroLote/criarLote", adminAuth, cadastroLoteController.criarLote);
+router.delete("/cadastroLote/:deleteLote", adminAuth, cadastroLoteController.deletaLoteUnico);
 
 /***************** VINCULAÇÃO DE LOTE *****************/
 
