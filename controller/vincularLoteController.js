@@ -16,13 +16,13 @@ class vincularLoteController {
 
     async barcodeVinculo(req, res) {
         try {
-            let { BarcodeIn } = req.body;
+            let barcodeId = req.params.barcode;
 
-            if (!BarcodeIn) {
+            if (!barcodeId) {
                 throw new ModeloInvalidoErro("Campo Barcode vazio.");
             }
 
-            let dadosLote = await vincularLoteService.chamarDadosBarcode(BarcodeIn);
+            let dadosLote = await vincularLoteService.chamarDadosBarcode(barcodeId);
 
             res.status(200).json(dadosLote)
 
@@ -32,8 +32,24 @@ class vincularLoteController {
     }
 
     async criarVinculoLote(req, res) {
+
+        try {
+
+        const { LoteId, MateriaPrimaIdInsumo, MateriaPrimaInsumo, Status} = req.body;
+
+        if( !LoteId || !MateriaPrimaIdInsumo || !MateriaPrimaInsumo || !Status) {
+            throw new ModeloInvalidoErro("Todos os campos são obrigatórios.");
+        }
+
+        let dadosLote = await vincularLoteService.vincularLote(LoteId, MateriaPrimaIdInsumo, MateriaPrimaInsumo, Status);
         
-    }
+        console.log(dadosLote);
+        res.status(200).json(dadosLote);
+
+        } catch (err) {
+            res.status(400).send({ erro: err.message, privilegio1: req.session.user.privilegio, acionaWarmin: false });
+        }
+    }   
 
 }
 

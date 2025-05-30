@@ -123,10 +123,11 @@ btnImprimir.onclick = function (event) {
     jQuery('#barCodeDiv').css({
         "width": "520px",
         "background":"#FFFFFF;", 
-        "color": "#2f2d2d"
+        "color": "#2f2d2d",
+        "font-size": "15px",
     });
     jQuery('#barCodeModal').modal('show');
-    jQuery('#mensagemBarcode').text('BARCODE');
+    jQuery('#mensagemBarcode').text('APROVADO');
     JsBarcode("#idBarcode", barCoode);
 };
 

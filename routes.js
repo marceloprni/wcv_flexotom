@@ -58,6 +58,9 @@ router.get("/vincularLote", usuarioAuth, (req, res) => {
 }); 
 
 router.get("/vincularLote/dadosLote", usuarioAuth, vincularLoteController.dadosLoteVinculo);
+router.get("/vincularLote/:barcode", usuarioAuth, vincularLoteController.barcodeVinculo);
+router.post("/vincularLote/:vincularLote", usuarioAuth, vincularLoteController.criarVinculoLote);
+router.delete("/vincularLote/:vincularDeleteLote");
 /***************** VISUALIZAÇÃO DE LOTE *****************/
 
 router.get("/vizualizarLote", usuarioAuth, (req, res) => {

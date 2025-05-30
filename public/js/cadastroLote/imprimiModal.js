@@ -1,5 +1,5 @@
 function imprimirModal(idModal) {
-   const conteudoModal = document.getElementById(`${idModal}`).innerHTML;
+  const conteudoModal = document.getElementById(`${idModal}`).innerHTML;
   const novaPagina = window.open();
 
   novaPagina.document.write(`
@@ -7,16 +7,49 @@ function imprimirModal(idModal) {
     <head>
       <title>Imprimir Modal</title>
       <style>
-        /* Adicione estilos específicos se necessário */
-        body { 
-        font-family: Arial, 
-        sans-serif; margin: 20px; 
+        /* Reset e dimensões da página */
+        @page {
+          size: 106mm 30mm; /* Largura × Altura */
+          margin: 0; /* Remove margens padrão */
         }
-         
-        #btn_imprimir_barcode {
-            display: none;
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          width: 106mm;
+          height: 30mm;
+          overflow: hidden; /* Evita vazamentos de conteúdo */
+        }
+      
+        #barCodeDiv {
+          margin:0;
+          padding: 0;
         }
         
+        #barCodeBody {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+        }
+
+        #mensagemBarcode {
+          margin: 0;
+          padding: 0;
+          font-size: 25px;
+          text-align: center;
+        }
+
+        #idBarcode {
+          align-items: center;
+          width: 90%;
+          height: 90%;
+        }
+
+        #btn_imprimir_barcode {
+          display: none;
+        }
       </style>
     </head>
     <body>
@@ -27,15 +60,12 @@ function imprimirModal(idModal) {
 
   novaPagina.document.close();
 
-  // Aguarde o carregamento do conteúdo e imprima
+  // Imprime após o carregamento
   novaPagina.onload = function() {
     novaPagina.focus();
     novaPagina.print();
-    // opcionalmente fechar a aba após a impressão
-    // novaPagina.close();
+    // novaPagina.close(); // Opcional: fechar após imprimir
   };
 }
 
-export {
-    imprimirModal
-}
+export { imprimirModal };

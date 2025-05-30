@@ -1,8 +1,18 @@
 
-let vincularLoteCv = []
+
+// VARIAVEIS GLOBAIS
+let buscarLote = document.getElementById('buscarLoteInput');
+let inputLoteModal = document.getElementById('LoteInput');
+let inputMateriaPrimaModal = document.getElementById('MateriaInput');
+let btnBuscarLote = document.getElementById('btnBuscarLote');
+let btnFinalizavinculo = document.getElementById('btnVinculaLoteFinal');
+
+let vincularLoteCv = [];
+let barCodeLote = [];
 let tableVincularLote;
 
 
+// CARREGA DADOS NA TABELA
 function createTable() {
     axios.get("/vincularLote/dadosLote").then(response => {
         //APAGA DADOS DO ARRAY
@@ -44,6 +54,73 @@ function createTable() {
         console.log(error);
     });
 };
+
+
+btnBuscarLote.onclick = () => {
+
+    const paramsId = buscarLote.value;
+
+    if(paramsId === ''){
+        alert("Preencha o campo corretamente.");
+        return;
+    }
+
+    axios.get(`/vincularLote/${paramsId}`).then(response => {
+            console.log(response);
+            barCodeLote.push(response.data);
+            console.log(barCodeLote);
+            if(response.status == 200){
+                inputLoteModal.value = response.data.Lote;
+                inputMateriaPrimaModal.value = response.data.MateriaPrimaInsumo;
+                jQuery('#barCodeModal').modal('show');   
+            }
+        }).catch(error => {
+                console.log(error);
+                const messagem = JSON.parse(error.request.responseText);
+                jQuery('#adicionar-modal').modal('hide');
+                jQuery('#messageDivChildren').css({"background":"#ffc107", "border": "2px solid #fff"});
+                jQuery('#message').modal('show');
+                jQuery('#messageText').text(messagem.erro);
+    }) 
+    
+  
+}
+
+
+btnFinalizavinculo.onclick = (event) => {
+    event.preventDefault();
+    
+    if(inputLoteModal.value === '' || inputMateriaPrimaModal.value === ''){
+        alert("Preencha os campos corretamente.");
+        return;
+    }
+
+    axios
+      .post("/vincularLote/criarVinculo", {
+        LoteId: barCodeLote[0].Lote,
+        MateriaPrimaIdInsumo: barCodeLote[0].MateriaPrimaIdInsumo,
+        MateriaPrimaInsumo: barCodeLote[0].MateriaPrimaInsumo,
+        Status: "CV",
+      })
+      .then((response) => {
+        console.log(response);
+        jQuery('#barCodeModal').modal('hide');  
+        
+        jQuery('#messageDivChildren').css({"background":"#E5192E", "border": "2px solid #fff", "color": "#fff"});
+        jQuery('#message').modal('show');
+        jQuery('#messageText').text(response.data.mensagemTabela);
+        setTimeout(() => {
+            window.location.reload(); 
+        },1000);
+      })
+      .catch((error) => {
+        const messagem = JSON.parse(error.request.responseText);
+        jQuery('#adicionar-modal').modal('hide');
+        jQuery('#messageDivChildren').css({"background":"#ffc107", "border": "2px solid #fff"});
+        jQuery('#message').modal('show');
+        jQuery('#messageText').text(messagem.erro);
+      });
+}
 
 
 createTable();
