@@ -4,9 +4,11 @@ const router = express.Router();
 const { adminAuth, usuarioAuth } = require("./middlewares/adminAuth");
 const UsuarioController = require("./controller/usuarioController");
 const CadastroLoteController = require("./controller/cadastroLoteController");
+const VincularLoteController = require("./controller/vincularLoteController");
 
 const usuarioController = new UsuarioController()
 const cadastroLoteController = new CadastroLoteController()
+const vincularLoteController = new VincularLoteController();
 
 router.use(session({
   secret: "secret",
@@ -55,6 +57,7 @@ router.get("/vincularLote", usuarioAuth, (req, res) => {
   });
 }); 
 
+router.get("/vincularLote/dadosLote", usuarioAuth, vincularLoteController.dadosLoteVinculo);
 /***************** VISUALIZAÇÃO DE LOTE *****************/
 
 router.get("/vizualizarLote", usuarioAuth, (req, res) => {

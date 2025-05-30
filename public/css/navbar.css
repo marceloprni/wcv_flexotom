@@ -93,6 +93,7 @@ html, body {
         background: #E5192E;
         gap: 0;
         overflow: hidden;
+		z-index: 2;
     }
 	
     .navbarLink  ul li{

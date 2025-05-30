@@ -1,0 +1,11 @@
+.btn_criar_vinculaLote {
+    height: 3rem;
+}
+
+#tabela-VincularLote_wrapper {
+    padding: 0.3rem;
+}
+
+.table_vincular_principal .dataTables_wrapper .row {
+    margin: 0;
+}

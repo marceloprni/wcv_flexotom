@@ -2,7 +2,53 @@
 <%- include ('../partials/navbar.ejs'); -%>
 
 
-<div class="container-fluid cnFluid">
+<main class="container_main">
+    <section class="container_section_first">
+        <div class="group_seleciona_materia group_seleciona_vinculaLote">
+            
+            <div class="form-group group_input_parametros">
+                <label for="">CLIQUE AQUI</label>
+                <input type="text" class="form-control inputPrima" id="buscarLoteInput" placeholder="">
+            </div>
+
+            <button class="btn_criar btn_criar_vinculaLote" id="btnBuscarLote">BUSCAR LOTE</button>
+        </div>
+
+        <div class="group_selectiona_btn">
+            <button class="btn_tabela" id="btn_vincular_lote">VINCULAR LOTE</button>
+        </div>
+    </section>
+
+    <section class="container_section_second">
+        <div class="container_table table_vincular_principal">
+            <table class="table text-black tabela_Cadastro table_vinculo" id="tabela-VincularLote"></table>
+        </div>
+    </section>
+</main>
+
+<div class="modal fade justify-content-center align-items-center align-self-center" id="barCodeModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" id="messageDiv" role="document">
+        <div class="modal-content" id="barCodeDiv">
+            <section class="container_section_first">
+                <div class="group_seleciona_materia">
+                    <H3> VINCUAR LOTE</H3>
+
+                    <div class="form-group group_input_parametros">
+                        <label for="">LOTE</label>
+                        <input type="text" class="form-control inputPrima" id="buscarLoteInput" placeholder="">
+                    </div>
+
+                    <div class="form-group group_input_parametros">
+                        <label for="">MATERIA PRIMA</label>
+                        <input type="text" class="form-control inputPrima" id="buscarLoteInput" placeholder="">
+                    </div>
+
+                    <button class="btn_criar" id="btnBuscarLote">BUSCAR LOTE</button>
+                </div>
+            </section>
+        </div>
+        </div>
+    </div>
 </div>
 
 <%- include ('../partials/footer.ejs'); -%>

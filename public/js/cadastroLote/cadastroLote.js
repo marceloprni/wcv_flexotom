@@ -122,7 +122,7 @@ btnImprimir.onclick = function (event) {
 
     jQuery('#barCodeDiv').css({
         "width": "520px",
-        "background":"##FFFFFF;", 
+        "background":"#FFFFFF;", 
         "color": "#2f2d2d"
     });
     jQuery('#barCodeModal').modal('show');
