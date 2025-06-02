@@ -41,7 +41,7 @@ docker run -e  "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Docker123!" -p 1440:1433 -d
 
 /* DOCKER */
 docker build -t aptivdashboard/node:latest .
-docker run -d -p 3400:3400 --name aptivdashboard aptivdashboard/node
+docker run -d -p 3500:3500 --name aptivdashboard aptivdashboard/node
 
 Usuários - UsuarioAlteracaoId
 	1 - Muitos Insumos OK

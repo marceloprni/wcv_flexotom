@@ -5,10 +5,12 @@ const { adminAuth, usuarioAuth } = require("./middlewares/adminAuth");
 const UsuarioController = require("./controller/usuarioController");
 const CadastroLoteController = require("./controller/cadastroLoteController");
 const VincularLoteController = require("./controller/vincularLoteController");
+const VisualizarLoteController = require("./controller/visualizarLoteController");
 
-const usuarioController = new UsuarioController()
-const cadastroLoteController = new CadastroLoteController()
+const usuarioController = new UsuarioController();
+const cadastroLoteController = new CadastroLoteController();
 const vincularLoteController = new VincularLoteController();
+const visualizarLoteController = new VisualizarLoteController();
 
 router.use(session({
   secret: "secret",
@@ -60,9 +62,9 @@ router.get("/vincularLote", usuarioAuth, (req, res) => {
 router.get("/vincularLote/dadosLote", usuarioAuth, vincularLoteController.dadosLoteVinculo);
 router.get("/vincularLote/:barcode", usuarioAuth, vincularLoteController.barcodeVinculo);
 router.post("/vincularLote/:vincularLote", usuarioAuth, vincularLoteController.criarVinculoLote);
-router.delete("/vincularLote/:vincularDeleteLote");
-/***************** VISUALIZAÇÃO DE LOTE *****************/
+router.delete("/vincularLote/:vincularDeleteLote", usuarioAuth, vincularLoteController.deletarLoteVinculo);
 
+/***************** VISUALIZAÇÃO DE LOTE *****************/
 router.get("/vizualizarLote", usuarioAuth, (req, res) => {
   res.render("visualizarLote/visualizarLote", {
       privilegio1: req.session.user.privilegio,
@@ -70,5 +72,7 @@ router.get("/vizualizarLote", usuarioAuth, (req, res) => {
       acionaWarmin: false
   });
 }); 
+
+router.get("/visualizarLote/dadosLote", usuarioAuth, visualizarLoteController.dadosLoteVisualizar)
 
 module.exports = router

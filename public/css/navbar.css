@@ -107,6 +107,15 @@ html, body {
  
 }
 
+@media (max-width: 790px) {
+	a.link_visualizar_lote {
+  		display: none;
+	}
+	.link_visualizar_lote {
+		display: none;
+	}
+}	
+
 
 @media (max-width:380px) {
     .navbarLink ul{

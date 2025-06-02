@@ -1,12 +1,17 @@
 
 
-// VARIAVEIS GLOBAIS
-let buscarLote = document.getElementById('buscarLoteInput');
+// INPUT 
 let inputLoteModal = document.getElementById('LoteInput');
 let inputMateriaPrimaModal = document.getElementById('MateriaInput');
+
+// BTN
+let buscarLote = document.getElementById('buscarLoteInput');
 let btnBuscarLote = document.getElementById('btnBuscarLote');
 let btnFinalizavinculo = document.getElementById('btnVinculaLoteFinal');
+let btnDeleteVinculo = document.getElementById('btn_vincular_lote');
+let btnDeletModal = document.getElementById('btnDeletarFinal');
 
+// VARIAVEL GLOBAL E ARRAY
 let vincularLoteCv = [];
 let barCodeLote = [];
 let tableVincularLote;
@@ -77,10 +82,11 @@ btnBuscarLote.onclick = () => {
         }).catch(error => {
                 console.log(error);
                 const messagem = JSON.parse(error.request.responseText);
-                jQuery('#adicionar-modal').modal('hide');
+                jQuery('#barCodeModal').modal('hide');
                 jQuery('#messageDivChildren').css({"background":"#ffc107", "border": "2px solid #fff"});
-                jQuery('#message').modal('show');
                 jQuery('#messageText').text(messagem.erro);
+                jQuery('#message').modal('show');
+                
     }) 
     
   
@@ -105,7 +111,6 @@ btnFinalizavinculo.onclick = (event) => {
       .then((response) => {
         console.log(response);
         jQuery('#barCodeModal').modal('hide');  
-        
         jQuery('#messageDivChildren').css({"background":"#E5192E", "border": "2px solid #fff", "color": "#fff"});
         jQuery('#message').modal('show');
         jQuery('#messageText').text(response.data.mensagemTabela);
@@ -115,12 +120,50 @@ btnFinalizavinculo.onclick = (event) => {
       })
       .catch((error) => {
         const messagem = JSON.parse(error.request.responseText);
-        jQuery('#adicionar-modal').modal('hide');
+        jQuery('#barCodeModal').modal('hide');
         jQuery('#messageDivChildren').css({"background":"#ffc107", "border": "2px solid #fff"});
         jQuery('#message').modal('show');
         jQuery('#messageText').text(messagem.erro);
       });
 }
 
+btnDeleteVinculo.onclick = (event) => {
+    event.preventDefault();
+
+    let selectedRow = tableVincularLote.row('.tableSelected');
+    let deleteLote = selectedRow.data()[0];
+    let deleteMateriaPrima = selectedRow.data()[1];
+
+    jQuery('#delete_lote').val(deleteLote);
+    jQuery('#delete_materia').val(deleteMateriaPrima);
+    jQuery('#deleteModal').modal('show');
+    
+}
+
+
+btnDeletModal.onclick = (event) => {
+    event.preventDefault(); 
+
+    let deleteLote = jQuery('#delete_lote').val();
+   
+    axios.delete(`/vincularLote/${deleteLote}`).then(response => {
+            console.log(response.data)
+            if(response.status == 201){
+                jQuery('#deleteModal').modal('hide');
+                jQuery('#messageDivChildren').css({"background":"#E5192E", "border": "2px solid #fff", "color": "#fff"});
+                jQuery('#message').modal('show');
+                jQuery('#messageText').text(response.data.message);
+                setTimeout(() => {
+                    window.location.reload(); 
+                },1000);     
+            }
+        }).catch(error => {
+                const messagem = JSON.parse(error.request.responseText);
+                jQuery('#deleteModal').modal('hide');
+                jQuery('#messageDivChildren').css({"background":"#ffc107", "border": "2px solid #fff"});
+                jQuery('#message').modal('show');
+                jQuery('#messageText').text(messagem.erro);
+    }) 
+}
 
 createTable();

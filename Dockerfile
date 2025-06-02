@@ -8,6 +8,9 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3400
+# Executar migrations durante a build (não recomendado)
+RUN npm run criar-banco1 && npm run executar-migration1
+
+EXPOSE 3500
 
 CMD ["npm", "run", "production"]

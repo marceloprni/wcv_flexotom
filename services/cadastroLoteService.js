@@ -11,7 +11,10 @@ async function dadosParaPage() {
         attributes: ['id', 'Lote', 'MateriaPrimaIdInsumo', 'MateriaPrimaInsumo', 'Barcode'],
         order: [
             ['id', 'DESC']
-        ]
+        ],
+        where: {
+              Status: 'SV',
+        }
     });
 
   

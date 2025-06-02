@@ -51,6 +51,25 @@ class vincularLoteController {
         }
     }   
 
+    async deletarLoteVinculo(req, res) {
+        try {
+            const deleteVinculo  = req.params.vincularDeleteLote;
+
+            if ( !deleteVinculo ) {
+                    throw new ModeloInvalidoErro("Campo ID Vazio.");
+            }
+
+            const deleteLote = vincularLoteService.deletarVinculo(deleteVinculo);
+            
+            if(deleteLote) {
+                res.status(201).json({ message: "Lote desvinculado com sucesso!" });
+            }
+            res.status(201).json(deleteLote.mensagem);
+        } catch (err) {
+            res.status(400).send({ erro: err.message, privilegio1: req.session.user.privilegio, acionaWarmin: false });
+        }
+    }
+
 }
 
 module.exports = vincularLoteController;
