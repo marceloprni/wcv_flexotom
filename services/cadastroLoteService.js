@@ -20,6 +20,9 @@ async function dadosParaPage() {
   
     let insumos = await Insumos.findAll({
         attributes: ['id', 'Descricao'],
+        order: [
+            ['Descricao', 'ASC']
+        ],
         where: {
             Status: 'A',
         }

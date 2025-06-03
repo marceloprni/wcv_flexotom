@@ -23,11 +23,13 @@ var tableCadastroLote;
 
 /* FUNÇÕES DE INICIOS PARA CARREGAR DADOS */
 function createTable() {
+    
     axios.get("/cadastroLote/dadosLote").then(response => {
         //APAGA DADOS DO ARRAY
         Lote = []
         LoteTotal = []
         console.log(response)
+
         // Configura o evento de focus uma única vez
         $('#materiaPrima').off('focus').on('focus', function () {
             if (!optionsCarregadas) {
@@ -35,6 +37,7 @@ function createTable() {
                 optionsCarregadas = true; // garante que carregue só uma vez
             }
         });
+
         
         for(let b of response.data.loteAtivo){
             Lote.push([b.Lote, b.MateriaPrimaInsumo]);
@@ -74,13 +77,21 @@ function createTable() {
 };
 
 /* FUNÇÕES DE INTERAÇÃO SELECT */
+
 selectMateria.onchange = function () {
     var campo_select = document.getElementById("materiaPrima");
     valorSelecionadoId = campo_select.options[campo_select.selectedIndex].value;
     valorSelecionado = campo_select.options[campo_select.selectedIndex].text;
     valueInputMateriaprima.placeholder = valorSelecionado;
     //campo_select.value = ''; 
-};
+}; 
+
+/*
+$(selectMateria).on('change', function() {
+    valorSelecionadoId = $(this).val();
+    valorSelecionado = $(this).find('option:selected').text();
+    valueInputMateriaprima.placeholder = valorSelecionado;
+});*/
 
 /* CADASTRO O LOTE NO BANCO DE DADOS */
 btnCriarLote.onclick  = function (event) {
@@ -161,6 +172,5 @@ btnDeleta.onclick = (event) => {
 }
 
 
+/* INICIA A PAGINA */
 createTable();
-
-
