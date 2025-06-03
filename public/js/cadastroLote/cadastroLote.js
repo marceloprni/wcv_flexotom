@@ -79,7 +79,7 @@ selectMateria.onchange = function () {
     valorSelecionadoId = campo_select.options[campo_select.selectedIndex].value;
     valorSelecionado = campo_select.options[campo_select.selectedIndex].text;
     valueInputMateriaprima.placeholder = valorSelecionado;
-    campo_select.value = ''; 
+    //campo_select.value = ''; 
 };
 
 /* CADASTRO O LOTE NO BANCO DE DADOS */

@@ -3,6 +3,10 @@
     height: 36.87rem;
 }
 
+#tabela-VisualizarLote thead th {
+    border-top: none;
+}
+
 #tabela-VisualizarLote_wrapper {
     padding: 0.3rem;
 }
