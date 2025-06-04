@@ -1,20 +1,25 @@
 import  { padraoTable }  from '../../datatableJson/dataTableJs.js';
-import { preencherSelect }  from './optionSelect.js';
+import { preencherSelect, formatText }  from './optionSelect.js';
 import { imprimirModal } from './imprimiModal.js';
 const DatatbleJson = JSON.stringify(padraoTable);
 
-// VARIAVEIS
-var Lote = []
-var LoteTotal = []
-let optionsCarregadas = false; // Variável para controlar o carregamento das opções
-var valorSelecionadoId 
-var valorSelecionado
-var valueInputMateriaprima = document.getElementById('materiaPrimaSelecionada');
+// BTN
+var selectMateria = document.getElementById('materiaPrima');
 var btnCriarLote = document.getElementById('btnCriarLote');
 var btnImprimir = document.getElementById('btn_imprimir');
 var btnModalImprimir = document.getElementById('btn_imprimir_barcode');
 var btnDeleta = document.getElementById('btn_deletar');
-var selectMateria = document.getElementById('materiaPrima');
+
+// VARIAVEIS
+//var valueInputMateriaprima = document.getElementById('materiaPrimaSelecionada');
+//let optionsCarregadas = false;  Variável para controlar o carregamento das opções
+var Lote = []
+var LoteTotal = []
+var InsumoTotal = []
+var valorSelecionadoId 
+var valorSelecionado
+
+
 var inputLote = document.getElementById('materiaPrimaLote');
 
 // TABELA
@@ -31,13 +36,28 @@ function createTable() {
         console.log(response)
 
         // Configura o evento de focus uma única vez
+
+        /*
         $('#materiaPrima').off('focus').on('focus', function () {
             if (!optionsCarregadas) {
                 preencherSelect("materiaPrima", response.data.insumoAtivo);
                 optionsCarregadas = true; // garante que carregue só uma vez
             }
         });
+        */
+       
+        for(let a of response.data.insumoAtivo) {
+            InsumoTotal.push({id: a.id, text: a.Descricao})
+        }
 
+        // SELECT DADOS REALIZADO 
+        $(selectMateria).select2({
+          data: InsumoTotal,
+          placeholder: "Selecione a materia prima",
+          allowClear: true
+        });
+        // APAGADO OS DADOS SELECIONADO
+        $(selectMateria).val(null).trigger('change');
         
         for(let b of response.data.loteAtivo){
             Lote.push([b.Lote, b.MateriaPrimaInsumo]);
@@ -76,22 +96,13 @@ function createTable() {
     });
 };
 
-/* FUNÇÕES DE INTERAÇÃO SELECT */
+/* OBJETO SELECIONADO DENTRO DO SELECT*/
+$(selectMateria).on("select2:select", function(e) {
+    valorSelecionadoId = e.params.data.id
+    valorSelecionado = e.params.data.text
+});
 
-selectMateria.onchange = function () {
-    var campo_select = document.getElementById("materiaPrima");
-    valorSelecionadoId = campo_select.options[campo_select.selectedIndex].value;
-    valorSelecionado = campo_select.options[campo_select.selectedIndex].text;
-    valueInputMateriaprima.placeholder = valorSelecionado;
-    //campo_select.value = ''; 
-}; 
 
-/*
-$(selectMateria).on('change', function() {
-    valorSelecionadoId = $(this).val();
-    valorSelecionado = $(this).find('option:selected').text();
-    valueInputMateriaprima.placeholder = valorSelecionado;
-});*/
 
 /* CADASTRO O LOTE NO BANCO DE DADOS */
 btnCriarLote.onclick  = function (event) {

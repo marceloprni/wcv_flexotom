@@ -33,6 +33,11 @@ function preencherSelectComArray(array, selectId) {
     $select.trigger('change');
 }
 
+function formatText(item) { 
+    const id = item.id;
+    const descricao = item.text;
+    console.log(id, descricao);
+}
 
 /*
 function preencherSelect(valueId, dados) {
@@ -57,5 +62,6 @@ function preencherSelect(valueId, dados) {
 */
 export {
     preencherSelect,
-    preencherSelectComArray
+    preencherSelectComArray,
+    formatText
 }
