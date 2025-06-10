@@ -154,6 +154,7 @@
 
     .btn_tabela {
         height: 2rem;
+        font-size: 0.8rem;
     }
 
     div.dataTables_wrapper div.dataTables_filter {
@@ -241,6 +242,8 @@
         width: 450px;
     }
 
+    
+
     #barCodeDiv {
         width: 400px;
     }
@@ -271,7 +274,6 @@
 
     .btn_tabela {
         width: 9rem;
-        font-size: 0.8rem;
     }
 
     .group_selectiona_btn {
