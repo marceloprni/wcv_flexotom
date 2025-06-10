@@ -9,6 +9,7 @@ var btnCriarLote = document.getElementById('btnCriarLote');
 var btnImprimir = document.getElementById('btn_imprimir');
 var btnModalImprimir = document.getElementById('btn_imprimir_barcode');
 var btnDeleta = document.getElementById('btn_deletar');
+var btnModalDeletar = document.getElementById('btnDeletar')
 
 // VARIAVEIS
 //var valueInputMateriaprima = document.getElementById('materiaPrimaSelecionada');
@@ -158,6 +159,27 @@ btnModalImprimir.onclick = () => {
 };
 
 btnDeleta.onclick = (event) => {
+ 
+    event.preventDefault();
+
+    let selectedRow = tableCadastroLote.row('.tableSelected');
+
+    if (selectedRow.length === 0) {
+        alert("Selecione uma materia prima para deletar.");
+        return;
+    }
+
+    let deleteLote = selectedRow.data()[0];
+    let deleteMateriaPrima = selectedRow.data()[1];
+
+    jQuery('#delete_lote').val(deleteLote);
+    jQuery('#delete_materia').val(deleteMateriaPrima);
+    jQuery('#deleteModal').modal('show');
+
+}
+
+
+btnModalDeletar.onclick = (event) => {
     event.preventDefault();
     let selectedRow = tableCadastroLote.row('.tableSelected');
     let deleteLote = selectedRow.data()[0];
@@ -165,6 +187,7 @@ btnDeleta.onclick = (event) => {
     axios.delete(`/cadastroLote/${deleteLote}`).then(response => {
             console.log(response.data)
             if(response.status == 201){
+                jQuery('#deleteModal').modal('hide');
                 jQuery('#messageDivChildren').css({"background":"#E5192E", "border": "2px solid #fff", "color": "#fff"});
                 jQuery('#message').modal('show');
                 jQuery('#messageText').text(response.data.message);

@@ -131,6 +131,12 @@ btnDeleteVinculo.onclick = (event) => {
     event.preventDefault();
 
     let selectedRow = tableVincularLote.row('.tableSelected');
+
+    if (selectedRow.length === 0) {
+        alert("Selecione uma materia prima para desvincular.");
+        return;
+    }
+
     let deleteLote = selectedRow.data()[0];
     let deleteMateriaPrima = selectedRow.data()[1];
 
